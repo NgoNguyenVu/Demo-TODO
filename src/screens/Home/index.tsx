@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Alert, Image, FlatList, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { Participant } from './components';
+import { Header } from '../../components/Header';
+import { AntDesign } from '@expo/vector-icons'
+import { Info } from '../../components/Info';
 
 export function Home() {
   const [participants, setParticipants] = useState<string[]>([]);
@@ -35,13 +38,7 @@ export function Home() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.logoContainer}>
-        <Image
-          source={require('../../assets/images/Logo.png')}
-          defaultSource={require('../../assets/images/Logo.png')}
-          style={styles.logo}
-        />
-      </View>
+      <Header />
 
       <View style={styles.form}>
         <TextInput
@@ -53,9 +50,11 @@ export function Home() {
         />
 
         <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
-          <Text style={styles.buttonText}>+</Text>
+          <AntDesign name='pluscircleo' size={24} color={'#FFF'} />
         </TouchableOpacity>
       </View>
+
+      <Info />
 
       <FlatList
         data={participants}
