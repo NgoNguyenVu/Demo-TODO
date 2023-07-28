@@ -5,8 +5,8 @@ export function Info() {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.textAdd}>Criadas</Text>
-        <Text style={styles.textDone}>Concluídas</Text>
+        <Text style={styles.taskAdd}>Criadas</Text>
+        <Text style={styles.taskDone}>Concluídas</Text>
       </View>
       <View style={styles.horizontalBar} />
     </>

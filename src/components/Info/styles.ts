@@ -8,12 +8,12 @@ export const styles = StyleSheet.create({
 		backgroundColor: '#000000',
 		width: '100%',
 	},
-	textAdd: {
+	taskAdd: {
 		color: '#4EA8DE',
 		fontSize: 16,
 		fontWeight: 'bold',
 	},
-	textDone: {
+	taskDone: {
 		color: '#8284FA',
 		fontSize: 16,
 		fontWeight: 'bold',
