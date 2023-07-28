@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Alert, FlatList, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, FlatList, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { Participant } from './components';
 
@@ -36,8 +35,13 @@ export function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.eventName}>Nome do Evento</Text>
-      <Text style={styles.eventDate}>Domingo, 23/07/2023</Text>
+      <View style={styles.logoContainer}>
+        <Image
+          source={require('../../assets/images/Logo.png')}
+          defaultSource={require('../../assets/images/Logo.png')}
+          style={styles.logo}
+        />
+      </View>
 
       <View style={styles.form}>
         <TextInput
@@ -47,7 +51,6 @@ export function Home() {
           onChangeText={setParticipant}
           value={participant}
         />
-        <StatusBar style="auto" />
 
         <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
           <Text style={styles.buttonText}>+</Text>
@@ -66,9 +69,15 @@ export function Home() {
         )}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
-          <Text style={styles.emptyList}>
-            Nenhum participante adicionado
-          </Text>
+          <>
+            <Image source={require('../../assets/images/Clipboard.png')} style={styles.emptyListImage} />
+            <Text style={styles.emptyListBold}>
+              Você ainda não tem tarefas cadastradas
+            </Text>
+            <Text style={styles.emptyList}>
+              Crie tarefas e organize seus itens a fazer
+            </Text>
+          </>
         )}
       />
     </View>

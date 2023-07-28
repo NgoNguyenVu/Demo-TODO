@@ -6,6 +6,16 @@ export const styles = StyleSheet.create({
 		backgroundColor: '#000000',
 		padding: 24,
 	},
+	logoContainer: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginTop: 36,
+		width: '100%',
+	},
+	logo: {
+		width: 111,
+		height: 32,
+	},
 	eventName: {
 		color: '#FFFFFF',
 		fontSize: 24,
@@ -50,8 +60,21 @@ export const styles = StyleSheet.create({
 		marginBottom: 42,
 	},
 	emptyList: {
-		color: '#FFFFFF',
+		color: '#808080',
+		fontSize: 14,
+		textAlign: 'center',
+	},
+	emptyListBold: {
+		color: '#808080',
 		fontSize: 16,
 		textAlign: 'center',
+		fontWeight: 'bold',
+	},
+	emptyListImage: {
+		width: 56,
+		height: 56,
+		alignSelf: 'center',
+		marginTop: 16,
+		marginBottom: 16,
 	},
 });

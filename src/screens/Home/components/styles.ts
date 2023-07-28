@@ -16,13 +16,13 @@ export const styles = StyleSheet.create({
 		marginLeft: 16,
 	},
 	button: {
-		height: 56,
-		backgroundColor: '#E23C44',
+		height: 52,
+		backgroundColor: '#1E6F9F',
 		borderRadius: 5,
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		width: 56,
+		width: 52,
 	},
 	buttonText: {
 		color: '#FFF',
