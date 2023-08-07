@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, Image, FlatList, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
 import { Participant } from './components';
 import { Header } from '../../components/Header';
@@ -9,6 +9,8 @@ import { Info } from '../../components/Info';
 export function Home() {
   const [participants, setParticipants] = useState<string[]>([]);
   const [participant, setParticipant] = useState('');
+  const [taskCounter, setTaskCounter] = useState(0);
+  const [taskDoneCounter, setTaskDoneCounter] = useState(0);
 
   function handleParticipantAdd(): void {
     if (participants.includes(participant)) {
@@ -20,6 +22,7 @@ export function Home() {
     }
 
     setParticipants(prevState => [...prevState, participant]);
+    setTaskCounter(prevState => prevState + 1);
     setParticipant('');
   }
 
@@ -31,9 +34,21 @@ export function Home() {
       },
       {
         text: 'Sim',
-        onPress: () => setParticipants(prevState => prevState.filter(item => item !== name)),
+        onPress: () => {
+          setParticipants(prevState => prevState.filter(item => item !== name))
+          setTaskCounter(prevState => prevState - 1);
+        },
+
       }
     ]);
+  }
+
+  function handleTaskDoneCounter(value: boolean): void {
+    if (value) {
+      setTaskDoneCounter(prevState => prevState + 1);
+    } else {
+      setTaskDoneCounter(prevState => prevState - 1);
+    }
   }
 
   return (
@@ -50,11 +65,11 @@ export function Home() {
         />
 
         <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
-          <AntDesign name='pluscircleo' size={24} color={'#FFF'} />
+          <AntDesign name='pluscircleo' size={20} color={'#FFF'} />
         </TouchableOpacity>
       </View>
 
-      <Info />
+      <Info taskCounter={taskCounter} taskDoneCounter={taskDoneCounter} />
 
       <FlatList
         data={participants}
@@ -63,6 +78,7 @@ export function Home() {
           <Participant
             key={item}
             name={item}
+            onCheckPressed={(value) => handleTaskDoneCounter(value)}
             onRemove={() => handleParticipantRemove(item)}
           />
         )}
