@@ -1,12 +1,23 @@
 import { View, Text } from 'react-native';
 import { styles } from './styles';
 
-export function Info() {
+type Props = {
+  taskCounter: number;
+  taskDoneCounter: number;
+}
+
+export function Info({ taskCounter, taskDoneCounter }: Props) {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.taskAdd}>Criadas</Text>
-        <Text style={styles.taskDone}>Concluídas</Text>
+        <View style={styles.infoContainer}>
+          <Text style={styles.taskAdd}>Criadas</Text>
+          <Text style={styles.taskCounter}>{taskCounter}</Text>
+        </View>
+        <View style={styles.infoContainer}>
+          <Text style={styles.taskDone}>Concluídas</Text>
+          <Text style={styles.taskCounter}>{taskDoneCounter}</Text>
+        </View>
       </View>
       <View style={styles.horizontalBar} />
     </>
