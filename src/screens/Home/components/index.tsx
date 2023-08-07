@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { styles } from './styles';
 import { AntDesign } from '@expo/vector-icons'
+import { styles } from './styles';
 
 import Checkbox from 'expo-checkbox';
 
@@ -11,7 +11,7 @@ type Props = {
   onCheckPressed: (value: boolean) => void;
 }
 
-export function Participant({ name, onRemove, onCheckPressed }: Props) {
+export function Task({ name, onRemove, onCheckPressed }: Props) {
   const [isChecked, setChecked] = useState(false);
 
   return (
@@ -30,9 +30,9 @@ export function Participant({ name, onRemove, onCheckPressed }: Props) {
         }}
       />
       {isChecked ? (
-        <Text style={styles.participantNameDone}>{name}</Text>
+        <Text style={styles.taskDone}>{name}</Text>
       ) : (
-        <Text style={styles.participantName}>{name}</Text>
+        <Text style={styles.taskAdd}>{name}</Text>
       )}
       <TouchableOpacity style={styles.button} onPress={onRemove}>
         <AntDesign name='delete' size={20} color={'#808080'} />
