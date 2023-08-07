@@ -2,35 +2,35 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	container: {
-		flex: 1,
 		backgroundColor: '#000000',
+		flex: 1,
 		padding: 24,
 	},
 	input: {
-		flex: 1,
-		height: 54,
 		backgroundColor: '#262626',
 		borderRadius: 5,
 		color: '#FFF',
-		padding: 16,
+		flex: 1,
 		fontSize: 16,
-		marginTop: 16,
+		height: 54,
 		marginRight: 12,
+		marginTop: 16,
+		padding: 16,
 	},
 	button: {
-		height: 52,
+		alignItems: 'center',
 		backgroundColor: '#1E6F9F',
 		borderRadius: 5,
 		flexDirection: 'row',
+		height: 52,
 		justifyContent: 'center',
-		alignItems: 'center',
 		marginTop: 16,
 		width: 52,
 	},
 	form: {
 		flexDirection: 'row',
-		marginTop: 36,
 		marginBottom: 42,
+		marginTop: 36,
 	},
 	emptyList: {
 		color: '#808080',
@@ -40,14 +40,14 @@ export const styles = StyleSheet.create({
 	emptyListBold: {
 		color: '#808080',
 		fontSize: 16,
-		textAlign: 'center',
 		fontWeight: 'bold',
+		textAlign: 'center',
 	},
 	emptyListImage: {
-		width: 56,
-		height: 56,
 		alignSelf: 'center',
-		marginTop: 56,
+		height: 56,
 		marginBottom: 16,
+		marginTop: 56,
+		width: 56,
 	},
 });

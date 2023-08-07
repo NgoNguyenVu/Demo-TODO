@@ -1,33 +1,33 @@
 import { useState } from 'react';
 import { Alert, Image, FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
-import { Participant } from './components';
+import { Task } from './components';
 import { Header } from '../../components/Header';
 import { AntDesign } from '@expo/vector-icons'
 import { Info } from '../../components/Info';
 
 export function Home() {
-  const [participants, setParticipants] = useState<string[]>([]);
-  const [participant, setParticipant] = useState('');
+  const [tasks, setTasks] = useState<string[]>([]);
+  const [task, setTask] = useState('');
   const [taskCounter, setTaskCounter] = useState(0);
   const [taskDoneCounter, setTaskDoneCounter] = useState(0);
 
-  function handleParticipantAdd(): void {
-    if (participants.includes(participant)) {
-      return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome');
+  function handleTaskAdd(): void {
+    if (tasks.includes(task)) {
+      return Alert.alert('Tarefa já existe!', 'Já existe uma tarefa na lista com esse nome.');
     }
-    if (participant.trim() === '') {
-      setParticipant('');
-      return Alert.alert('Participante vazio', 'O nome do participante não pode ser vazio');
+    if (task.trim() === '') {
+      setTask('');
+      return Alert.alert('Tarefa vazia!', 'O nome da tarefa não pode ser vazio.');
     }
 
-    setParticipants(prevState => [...prevState, participant]);
+    setTasks(prevState => [...prevState, task]);
     setTaskCounter(prevState => prevState + 1);
-    setParticipant('');
+    setTask('');
   }
 
-  function handleParticipantRemove(name: string): void {
-    Alert.alert('Remover', `Você deseja excluir o participante ${name}?`, [
+  function handleTaskRemove(name: string): void {
+    Alert.alert('Remover!', `Você deseja excluir a tarefa ${name}?`, [
       {
         text: 'Não',
         style: 'cancel',
@@ -35,7 +35,7 @@ export function Home() {
       {
         text: 'Sim',
         onPress: () => {
-          setParticipants(prevState => prevState.filter(item => item !== name))
+          setTasks(prevState => prevState.filter(item => item !== name))
           setTaskCounter(prevState => prevState - 1);
         },
 
@@ -60,11 +60,11 @@ export function Home() {
           style={styles.input}
           placeholder="Adicione uma nova tarefa"
           placeholderTextColor={'#808080'}
-          onChangeText={setParticipant}
-          value={participant}
+          onChangeText={setTask}
+          value={task}
         />
 
-        <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
+        <TouchableOpacity style={styles.button} onPress={handleTaskAdd}>
           <AntDesign name='pluscircleo' size={20} color={'#FFF'} />
         </TouchableOpacity>
       </View>
@@ -72,14 +72,14 @@ export function Home() {
       <Info taskCounter={taskCounter} taskDoneCounter={taskDoneCounter} />
 
       <FlatList
-        data={participants}
+        data={tasks}
         keyExtractor={item => item}
         renderItem={({ item }) => (
-          <Participant
+          <Task
             key={item}
             name={item}
             onCheckPressed={(value) => handleTaskDoneCounter(value)}
-            onRemove={() => handleParticipantRemove(item)}
+            onRemove={() => handleTaskRemove(item)}
           />
         )}
         showsVerticalScrollIndicator={false}

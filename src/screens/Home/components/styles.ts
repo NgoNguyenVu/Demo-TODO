@@ -2,32 +2,32 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	container: {
+		alignItems: 'center',
 		backgroundColor: '#262626',
 		borderRadius: 5,
 		flexDirection: 'row',
-		width: '100%',
-		alignItems: 'center',
 		marginBottom: 10,
+		width: '100%',
 	},
-	participantName: {
-		flex: 1,
+	taskAdd: {
 		color: '#FFFFFF',
+		flex: 1,
 		fontSize: 16,
 		marginLeft: 16,
 	},
-	participantNameDone: {
-		flex: 1,
+	taskDone: {
 		color: '#808080',
+		flex: 1,
 		fontSize: 16,
 		marginLeft: 16,
 		textDecorationLine: 'line-through',
 	},
 	button: {
-		height: 52,
+		alignItems: 'center',
 		borderRadius: 5,
 		flexDirection: 'row',
+		height: 52,
 		justifyContent: 'center',
-		alignItems: 'center',
 		width: 52,
 	},
 	buttonText: {
