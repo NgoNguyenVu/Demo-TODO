@@ -34,9 +34,14 @@ export function Task({ name, onRemove, onCheckPressed }: Props) {
       ) : (
         <Text style={styles.taskAdd}>{name}</Text>
       )}
-      <TouchableOpacity style={styles.button} onPress={onRemove}>
-        <AntDesign name='delete' size={20} color={'#808080'} />
-      </TouchableOpacity>
+      <View style={styles.actionButtonsContainer}>
+        <TouchableOpacity style={styles.button} onPress={ () => {} }>
+          <AntDesign name='pluscircle' size={24} color={'#4EA8DE'} />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={onRemove}>
+          <AntDesign name='delete' size={24} color={'#808080'} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

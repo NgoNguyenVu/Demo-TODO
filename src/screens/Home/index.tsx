@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Alert, Image, FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
-import { Task } from './components';
+import { Task } from './components/Task';
 import { Header } from '../../components/Header';
 import { AntDesign } from '@expo/vector-icons'
 import { Info } from '../../components/Info';
