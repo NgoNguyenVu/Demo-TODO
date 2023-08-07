@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
 	container: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		marginBottom: 24,
+		marginBottom: 20,
 		backgroundColor: '#000000',
 		width: '100%',
 	},
@@ -22,5 +22,18 @@ export const styles = StyleSheet.create({
 		width: '100%',
 		height: 1,
 		backgroundColor: '#808080',
+	},
+	infoContainer: {
+		flexDirection: 'row',
+	},
+	taskCounter: {
+		color: '#F0F0F0',
+		fontSize: 14,
+		backgroundColor: '#333333',
+		borderRadius: 8,
+		paddingVertical: 2,
+		paddingHorizontal: 8,
+		fontWeight: 'bold',
+		marginHorizontal: 8,
 	},
 });
