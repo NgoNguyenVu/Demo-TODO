@@ -22,6 +22,7 @@ export const styles = StyleSheet.create({
 		width: '100%',
 		height: 1,
 		backgroundColor: '#808080',
+		marginBottom: 10,
 	},
 	infoContainer: {
 		flexDirection: 'row',
