@@ -3,22 +3,24 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
 	container: {
 		alignItems: 'center',
-		backgroundColor: '#262626',
+		backgroundColor: '#1A1A1A',
 		borderRadius: 5,
 		flexDirection: 'row',
-		marginBottom: 10,
+		justifyContent: 'center',
+		marginTop: 3,
 		width: '100%',
 	},
-	taskAdd: {
-		color: '#FFFFFF',
+	subTaskAdd: {
+		alignItems: 'center',
+		color: '#CACACA',
 		flex: 1,
-		fontSize: 16,
+		fontSize: 14,
 		marginLeft: 16,
 	},
-	taskDone: {
+	subTaskDone: {
 		color: '#808080',
 		flex: 1,
-		fontSize: 16,
+		fontSize: 14,
 		marginLeft: 16,
 		textDecorationLine: 'line-through',
 	},
@@ -26,9 +28,9 @@ export const styles = StyleSheet.create({
 		alignItems: 'center',
 		borderRadius: 5,
 		flexDirection: 'row',
-		height: 52,
+		height: 36,
 		justifyContent: 'center',
-		width: 52,
+		width: 36,
 	},
 	buttonText: {
 		color: '#FFF',
@@ -37,8 +39,9 @@ export const styles = StyleSheet.create({
 	},
 	checkbox: {
 		alignSelf: 'center',
-		borderRadius: 999,
 		borderColor: '#4EA8DE',
 		marginLeft: 16,
+		height: 16,
+		width: 16,
 	},
 });

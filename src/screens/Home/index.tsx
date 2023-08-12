@@ -6,22 +6,44 @@ import { Header } from '../../components/Header';
 import { AntDesign } from '@expo/vector-icons'
 import { Info } from '../../components/Info';
 
+export type ITask = {
+  taskName: string;
+  subTasks: string[];
+}
+
 export function Home() {
-  const [tasks, setTasks] = useState<string[]>([]);
+  const [tasks, setTasks] = useState<ITask[]>([
+    {
+      taskName: 'Tarefa 1',
+      subTasks: ['SubTarefa 1', 'SubTarefa 2'],
+    },
+    {
+      taskName: 'Tarefa 2',
+      subTasks: [],
+    },
+    {
+      taskName: 'Tarefa 3',
+      subTasks: ['SubTarefa 1'],
+    },
+  ]);
   const [task, setTask] = useState('');
   const [taskCounter, setTaskCounter] = useState(0);
   const [taskDoneCounter, setTaskDoneCounter] = useState(0);
 
   function handleTaskAdd(): void {
-    if (tasks.includes(task)) {
+    if (tasks.some(item => item.taskName === task)) {
       return Alert.alert('Tarefa já existe!', 'Já existe uma tarefa na lista com esse nome.');
     }
     if (task.trim() === '') {
       setTask('');
       return Alert.alert('Tarefa vazia!', 'O nome da tarefa não pode ser vazio.');
     }
+    const taskObject = {
+      taskName: task,
+      subTasks: [],
+    };
 
-    setTasks(prevState => [...prevState, task]);
+    setTasks(prevState => [...prevState, taskObject]);
     setTaskCounter(prevState => prevState + 1);
     setTask('');
   }
@@ -35,7 +57,7 @@ export function Home() {
       {
         text: 'Sim',
         onPress: () => {
-          setTasks(prevState => prevState.filter(item => item !== name))
+          setTasks(prevState => prevState.filter(item => item.taskName !== name))
           setTaskCounter(prevState => prevState - 1);
         },
 
@@ -59,6 +81,9 @@ export function Home() {
         <TextInput
           style={styles.input}
           placeholder="Adicione uma nova tarefa"
+          keyboardAppearance='dark'
+          autoCapitalize='words'
+          keyboardType='default'
           placeholderTextColor={'#808080'}
           onChangeText={setTask}
           value={task}
@@ -73,13 +98,13 @@ export function Home() {
 
       <FlatList
         data={tasks}
-        keyExtractor={item => item}
+        keyExtractor={item => item.taskName}
         renderItem={({ item }) => (
           <Task
-            key={item}
+            key={item.taskName}
             name={item}
             onCheckPressed={(value) => handleTaskDoneCounter(value)}
-            onRemove={() => handleTaskRemove(item)}
+            onRemove={() => handleTaskRemove(item.taskName)}
           />
         )}
         showsVerticalScrollIndicator={false}

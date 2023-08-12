@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
 	container: {
 		alignItems: 'center',
-		backgroundColor: '#262626',
+		backgroundColor: '#1A1A1A',
 		borderRadius: 5,
 		flexDirection: 'row',
-		marginBottom: 10,
+		marginTop: 10,
 		width: '100%',
 	},
 	taskAdd: {
