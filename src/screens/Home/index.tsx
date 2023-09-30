@@ -1,10 +1,14 @@
+import React from 'react';
 import { useState } from 'react';
+
 import { Alert, Image, FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { styles } from './styles';
+import { Clipboard } from '@assets/index';
 import { Task } from './components/Task';
 import { Header } from '../../components/Header';
-import { AntDesign } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons';
 import { Info } from '../../components/Info';
+import { useTranslation } from 'react-i18next';
+import { styles } from './styles';
 
 export type ITask = {
   taskName: string;
@@ -12,31 +16,20 @@ export type ITask = {
 }
 
 export function Home() {
-  const [tasks, setTasks] = useState<ITask[]>([
-    {
-      taskName: 'Tarefa 1',
-      subTasks: ['SubTarefa 1', 'SubTarefa 2'],
-    },
-    {
-      taskName: 'Tarefa 2',
-      subTasks: [],
-    },
-    {
-      taskName: 'Tarefa 3',
-      subTasks: ['SubTarefa 1'],
-    },
-  ]);
+  const [tasks, setTasks] = useState<ITask[]>([]);
   const [task, setTask] = useState('');
   const [taskCounter, setTaskCounter] = useState(0);
   const [taskDoneCounter, setTaskDoneCounter] = useState(0);
 
+  const { t } = useTranslation();
+
   function handleTaskAdd(): void {
     if (tasks.some(item => item.taskName === task)) {
-      return Alert.alert('Tarefa já existe!', 'Já existe uma tarefa na lista com esse nome.');
+      return Alert.alert(t('home.alertTaskExist.title'), t('home.alertTaskExist.message'));
     }
     if (task.trim() === '') {
       setTask('');
-      return Alert.alert('Tarefa vazia!', 'O nome da tarefa não pode ser vazio.');
+      return Alert.alert(t('home.alertTaskEmpty.title'), t('home.alertTaskEmpty.message'));
     }
     const taskObject = {
       taskName: task,
@@ -49,15 +42,15 @@ export function Home() {
   }
 
   function handleTaskRemove(name: string): void {
-    Alert.alert('Remover!', `Você deseja excluir a tarefa ${name}?`, [
+    Alert.alert(t('home.alertTaskRemove.title'), t('home.alertTaskRemove.message', { name }), [
       {
-        text: 'Não',
+        text: t('home.alertTaskRemove.textNo'),
         style: 'cancel',
       },
       {
-        text: 'Sim',
+        text: t('home.alertTaskRemove.textYes'),
         onPress: () => {
-          setTasks(prevState => prevState.filter(item => item.taskName !== name))
+          setTasks(prevState => prevState.filter(item => item.taskName !== name));
           setTaskCounter(prevState => prevState - 1);
         },
 
@@ -110,12 +103,12 @@ export function Home() {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <>
-            <Image source={require('../../assets/images/Clipboard.png')} style={styles.emptyListImage} />
+            <Image source={Clipboard} style={styles.emptyListImage} />
             <Text style={styles.emptyListBold}>
-              Você ainda não tem tarefas cadastradas
+              {t('home.emptyListTitle')}
             </Text>
             <Text style={styles.emptyList}>
-              Crie tarefas e organize seus itens a fazer
+              {t('home.emptyListSubTitle')}
             </Text>
           </>
         )}
