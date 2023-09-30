@@ -2,33 +2,35 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	container: {
-		backgroundColor: '#262626',
+		alignItems: 'center',
+		backgroundColor: '#1A1A1A',
 		borderRadius: 5,
 		flexDirection: 'row',
+		justifyContent: 'center',
+		marginTop: 3,
 		width: '100%',
-		alignItems: 'center',
-		marginBottom: 10,
 	},
-	participantName: {
+	subTaskAdd: {
+		alignItems: 'center',
+		color: '#CACACA',
 		flex: 1,
-		color: '#FFFFFF',
-		fontSize: 16,
+		fontSize: 14,
 		marginLeft: 16,
 	},
-	participantNameDone: {
-		flex: 1,
+	subTaskDone: {
 		color: '#808080',
-		fontSize: 16,
+		flex: 1,
+		fontSize: 14,
 		marginLeft: 16,
 		textDecorationLine: 'line-through',
 	},
 	button: {
-		height: 52,
+		alignItems: 'center',
 		borderRadius: 5,
 		flexDirection: 'row',
+		height: 36,
 		justifyContent: 'center',
-		alignItems: 'center',
-		width: 52,
+		width: 36,
 	},
 	buttonText: {
 		color: '#FFF',
@@ -37,8 +39,9 @@ export const styles = StyleSheet.create({
 	},
 	checkbox: {
 		alignSelf: 'center',
-		borderRadius: 999,
 		borderColor: '#4EA8DE',
 		marginLeft: 16,
+		height: 16,
+		width: 16,
 	},
 });
