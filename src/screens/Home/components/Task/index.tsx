@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList, TextInput } from 'react-native';
-import { AntDesign } from '@expo/vector-icons'
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { AntDesign } from '@expo/vector-icons';
 import { styles } from './styles';
 
 import Checkbox from 'expo-checkbox';
