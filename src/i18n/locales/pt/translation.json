@@ -1,0 +1,26 @@
+{
+  "translation": {
+    "home": {
+      "alertTaskExists": {
+        "title": "Tarefa já existe!",
+        "message": "Uma tarefa com o mesmo nome já existe. Por favor, escolha um nome diferente."
+      },
+      "alertTaskEmpty": {
+        "title": "Tarefa vazia!",
+        "message": "Por favor, insira um nome para a tarefa."
+      },
+      "alertTaskRemove": {
+        "title": "Remover tarefa?",
+        "message": "Tem certeza de que deseja remover a tarefa '%s'?",
+        "textNo": "Não",
+        "textYes": "Sim"
+      },
+      "emptyListTitle": "Você ainda não tem tarefas registradas",
+      "emptyListSubTitle": "Crie tarefas e organize suas atividades a fazer"
+    },
+		"info": {
+			"taskCreated": "Criadas",
+			"taskDone": "Concluídas"
+		}
+  }
+}
