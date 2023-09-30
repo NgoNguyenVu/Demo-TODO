@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { AntDesign } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons';
 import { styles } from './styles';
 import { Checkbox } from 'expo-checkbox';
 
@@ -35,9 +35,9 @@ export function SubTask({ name }: Props) {
       )}
       <TouchableOpacity
         style={styles.button}
-        onPress={() => { }}>
+        onPress={() => { console.log('oi'); }}>
         <AntDesign name='delete' size={18} color={'#818181'} />
       </TouchableOpacity>
     </View >
-  )
+  );
 }

@@ -16,11 +16,19 @@
         "textYes": "Sim"
       },
       "emptyListTitle": "Você ainda não tem tarefas registradas",
-      "emptyListSubTitle": "Crie tarefas e organize suas atividades a fazer"
+      "emptyListSubTitle": "Crie tarefas e organize suas atividades a fazer",
+      "alertSubTaskExists": {
+        "title": "Subtarefa já existe!",
+        "message": "Uma subtarefa com o mesmo nome já existe. Por favor, escolha um nome diferente."
+      },
+      "alertSubTaskEmpty": {
+        "title": "Subtarefa vazia!",
+        "message": "Por favor, insira um nome para a subtarefa."
+      }
     },
-		"info": {
-			"taskCreated": "Criadas",
-			"taskDone": "Concluídas"
-		}
+    "info": {
+      "taskCreated": "Criadas",
+      "taskDone": "Concluídas"
+    }
   }
 }
