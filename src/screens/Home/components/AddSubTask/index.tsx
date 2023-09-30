@@ -1,13 +1,14 @@
 import React from 'react';
 import { TextInput, TouchableOpacity, View } from 'react-native';
-import { AntDesign } from '@expo/vector-icons'
+import { AntDesign } from '@expo/vector-icons';
 import { styles } from './styles';
 
 type Props = {
-  name: string;
+  onSubTaskAddPressed: (value: string) => void;
 }
 
-export function AddSubTask() {
+export function AddSubTask({ onSubTaskAddPressed }: Props) {
+  const [inputValue, setInputValue] = React.useState<string>('');
 
   return (
     <View style={styles.container}>
@@ -18,12 +19,19 @@ export function AddSubTask() {
         autoCapitalize='words'
         keyboardType='default'
         placeholderTextColor={'#808080'}
+        value={inputValue}
+        onChangeText={setInputValue}
       />
       <TouchableOpacity
         style={styles.button}
-        onPress={() => { }}>
+        onPress={() => {
+          if (inputValue) {
+            onSubTaskAddPressed(inputValue);
+            setInputValue('');
+          }
+        }}>
         <AntDesign name='pluscircleo' size={20} color={'#FFF'} />
       </TouchableOpacity>
     </View>
-  )
+  );
 }

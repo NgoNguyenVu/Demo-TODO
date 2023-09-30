@@ -12,9 +12,10 @@ type Props = {
   name: ITask;
   onRemove: () => void;
   onCheckPressed: (value: boolean) => void;
+  onSubTaskAdd: (value: string) => void;
 }
 
-export function Task({ name, onRemove, onCheckPressed }: Props) {
+export function Task({ name, onRemove, onCheckPressed, onSubTaskAdd }: Props) {
   const [isChecked, setChecked] = useState(false);
   const [addSubTask, setAddSubTask] = useState(false);
 
@@ -41,26 +42,31 @@ export function Task({ name, onRemove, onCheckPressed }: Props) {
         )}
         <View style={styles.actionButtonsContainer}>
           <TouchableOpacity style={styles.button} onPress={() => setAddSubTask(!addSubTask)}>
-            <AntDesign name='plus' size={24} color={'#4EA8DE'} />
+            {!addSubTask ? (
+              <AntDesign name='plus' size={24} color={'#4EA8DE'} />
+            ) : (
+              <AntDesign name='minus' size={24} color={'#E25858'} />)}
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={onRemove}>
             <AntDesign name='delete' size={24} color={'#808080'} />
           </TouchableOpacity>
         </View>
       </View>
-      {addSubTask && (
-        <AddSubTask />
-      )}
       <FlatList
         data={name.subTasks}
-        keyExtractor={item => item}
+        keyExtractor={item => item.subTaskName}
         renderItem={({ item }) => (
           <SubTask
-            name={item}
+            name={item.subTaskName}
           />
         )}
         showsVerticalScrollIndicator={false}
       />
+      {addSubTask && (
+        <AddSubTask
+          onSubTaskAddPressed={onSubTaskAdd}
+        />
+      )}
     </>
 
   );
