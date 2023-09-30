@@ -16,7 +16,15 @@
         "textYes": "Yes"
       },
       "emptyListTitle": "You don't have any tasks registered yet",
-      "emptyListSubTitle": "Create tasks and organize your to-do items"
+      "emptyListSubTitle": "Create tasks and organize your to-do items",
+      "alertSubTaskExists": {
+        "title": "Sub-task already exists!",
+        "message": "A sub-task with the same name already exists. Please choose a different name."
+      },
+      "alertSubTaskEmpty": {
+        "title": "Sub-task empty!",
+        "message": "Please enter a sub-task name."
+      }
     },
     "info": {
       "taskCreated": "Created",
