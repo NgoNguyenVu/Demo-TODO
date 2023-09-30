@@ -12,8 +12,11 @@ import { styles } from './styles';
 
 export type ITask = {
   taskName: string;
-  subTasks: string[];
-}
+  subTasks: {
+    subTaskName: string;
+    isDone: boolean;
+  }[];
+};
 
 export function Home() {
   const [tasks, setTasks] = useState<ITask[]>([]);
@@ -25,7 +28,7 @@ export function Home() {
 
   function handleTaskAdd(): void {
     if (tasks.some(item => item.taskName === task)) {
-      return Alert.alert(t('home.alertTaskExist.title'), t('home.alertTaskExist.message'));
+      return Alert.alert(t('home.alertTaskExists.title'), t('home.alertTaskExists.message'));
     }
     if (task.trim() === '') {
       setTask('');
@@ -35,7 +38,6 @@ export function Home() {
       taskName: task,
       subTasks: [],
     };
-
     setTasks(prevState => [...prevState, taskObject]);
     setTaskCounter(prevState => prevState + 1);
     setTask('');
@@ -64,6 +66,23 @@ export function Home() {
     } else {
       setTaskDoneCounter(prevState => prevState - 1);
     }
+  }
+
+  function handleSubTaskAdd(name: string, subTask: string): void {
+    const taskIndex = tasks.findIndex(item => item.taskName === name);
+    
+    if (tasks[taskIndex].subTasks.some(item => item.subTaskName === subTask)) {
+      return Alert.alert(t('home.alertSubTaskExists.title'), t('home.alertSubTaskExists.message'));
+    }
+    if (subTask.trim() === '') {
+      return Alert.alert(t('home.alertSubTaskEmpty.title'), t('home.alertSubTaskEmpty.message'));
+    }
+    const subTaskObject = {
+      subTaskName: subTask,
+      isDone: false,
+    };
+    tasks[taskIndex].subTasks.push(subTaskObject);
+    setTasks([...tasks]);
   }
 
   return (
@@ -98,6 +117,7 @@ export function Home() {
             name={item}
             onCheckPressed={(value) => handleTaskDoneCounter(value)}
             onRemove={() => handleTaskRemove(item.taskName)}
+            onSubTaskAdd={(subTask) => handleSubTaskAdd(item.taskName, subTask)}
           />
         )}
         showsVerticalScrollIndicator={false}
