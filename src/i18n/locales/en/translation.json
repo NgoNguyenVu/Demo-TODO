@@ -1,0 +1,26 @@
+{
+  "translation": {
+    "home": {
+      "alertTaskExists": {
+        "title": "Task already exists!",
+        "message": "A task with the same name already exists. Please choose a different name."
+      },
+      "alertTaskEmpty": {
+        "title": "Task empty!",
+        "message": "Please enter a task name."
+      },
+      "alertTaskRemove": {
+        "title": "Remove task?",
+        "message": "Are you sure you want to remove the task '%s'?",
+        "textNo": "No",
+        "textYes": "Yes"
+      },
+      "emptyListTitle": "You don't have any tasks registered yet",
+      "emptyListSubTitle": "Create tasks and organize your to-do items"
+    },
+    "info": {
+      "taskCreated": "Created",
+      "taskDone": "Completed"
+    }
+  }
+}

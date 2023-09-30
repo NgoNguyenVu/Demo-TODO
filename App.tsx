@@ -1,10 +1,12 @@
+import * as React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Home } from './src/screens/Home';
+import { Routes } from './src/routes';
+import './src/i18n/index';
 
 export default function App() {
   return (
     <>
-      <Home />
+      <Routes />
       <StatusBar style="light" />
     </>
   );

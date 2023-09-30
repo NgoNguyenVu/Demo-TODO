@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
 	horizontalBar: {
 		backgroundColor: '#808080',
 		height: 1,
-		marginBottom: 10,
+		marginBottom: 5,
 		width: '100%',
 	},
 	infoContainer: {
