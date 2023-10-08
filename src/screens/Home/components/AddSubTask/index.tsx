@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextInput, TouchableOpacity, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { styles } from './styles';
 
 type Props = {
@@ -10,11 +11,13 @@ type Props = {
 export function AddSubTask({ onSubTaskAddPressed }: Props) {
   const [inputValue, setInputValue] = React.useState<string>('');
 
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        placeholder='Digite a sub tarefa'
+        placeholder={t('addSubTask.placeholder')}
         keyboardAppearance='dark'
         autoCapitalize='words'
         keyboardType='default'
