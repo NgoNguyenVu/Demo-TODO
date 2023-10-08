@@ -35,6 +35,9 @@
     "info": {
       "taskCreated": "Created",
       "taskDone": "Completed"
+    },
+    "addSubTask": {
+      "placeholder": "Enter a sub-task name"
     }
   }
 }
