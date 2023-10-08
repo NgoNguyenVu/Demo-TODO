@@ -35,6 +35,9 @@
     "info": {
       "taskCreated": "Criadas",
       "taskDone": "Concluídas"
+    },
+    "addSubTask": {
+      "placeholder": "Nome da subtarefa"
     }
   }
 }
