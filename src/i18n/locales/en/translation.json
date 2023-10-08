@@ -11,7 +11,7 @@
       },
       "alertTaskRemove": {
         "title": "Remove task?",
-        "message": "Are you sure you want to remove the task '%s'?",
+        "message": "Are you sure you want to remove the task {{name}}?",
         "textNo": "No",
         "textYes": "Yes"
       },
@@ -24,6 +24,12 @@
       "alertSubTaskEmpty": {
         "title": "Sub-task empty!",
         "message": "Please enter a sub-task name."
+      },
+      "alertSubTaskRemove": {
+        "title": "Remove sub-task?",
+        "message": "Are you sure you want to remove the sub-task {{subTaskName}}?",
+        "textNo": "No",
+        "textYes": "Yes"
       }
     },
     "info": {

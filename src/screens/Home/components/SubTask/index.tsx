@@ -6,11 +6,10 @@ import { Checkbox } from 'expo-checkbox';
 
 type Props = {
   name: string;
-  // onRemove: () => void;
-  // onCheckPressed: (value: boolean) => void;
+  onSubTaskRemovePressed: (value: string) => void;
 }
 
-export function SubTask({ name }: Props) {
+export function SubTask({ name, onSubTaskRemovePressed }: Props) {
   const [isChecked, setChecked] = React.useState(false);
 
   return (
@@ -35,7 +34,7 @@ export function SubTask({ name }: Props) {
       )}
       <TouchableOpacity
         style={styles.button}
-        onPress={() => { console.log('oi'); }}>
+        onPress={() => onSubTaskRemovePressed(name)}>
         <AntDesign name='delete' size={18} color={'#818181'} />
       </TouchableOpacity>
     </View >
