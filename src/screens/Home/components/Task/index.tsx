@@ -13,9 +13,10 @@ type Props = {
   onRemove: () => void;
   onCheckPressed: (value: boolean) => void;
   onSubTaskAdd: (value: string) => void;
+  onSubTaskRemove: (value: string) => void;
 }
 
-export function Task({ name, onRemove, onCheckPressed, onSubTaskAdd }: Props) {
+export function Task({ name, onRemove, onCheckPressed, onSubTaskAdd, onSubTaskRemove }: Props) {
   const [isChecked, setChecked] = useState(false);
   const [addSubTask, setAddSubTask] = useState(false);
 
@@ -58,6 +59,7 @@ export function Task({ name, onRemove, onCheckPressed, onSubTaskAdd }: Props) {
         renderItem={({ item }) => (
           <SubTask
             name={item.subTaskName}
+            onSubTaskRemovePressed={onSubTaskRemove}
           />
         )}
         showsVerticalScrollIndicator={false}
