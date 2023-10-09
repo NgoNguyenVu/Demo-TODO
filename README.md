@@ -9,7 +9,7 @@ The application is an **to-do list**, which contains the followig functionalitie
 
 ## App Demo
 
-> !['Todo-list'](./assets/project/video/todolist.gif)
+> !['Todo-list'](./assets/screen.gif)
 
 ## How to use the app
 
