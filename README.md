@@ -17,7 +17,7 @@ The application is an **to-do list**, which contains the followig functionalitie
 
 Click on the link below to try out the application in the online emulator:
 
-> [Appetize.io](https://appetize.io/app/....)
+> [Appetize.io](https://appetize.io/app/pkxjll2gugnzyf3lfta3bcve2m)
 
 ### Local environment
 
